@@ -1,13 +1,12 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Huskydog9988/mcstatusbot/tree/V0.2)
-
 # mcstatusbot
-A simple [Discord.js](https://www.npmjs.com/package/discord.js) bot that pings [Minecraft](https://minecraft.gamepedia.com) servers using the [mc-ping-updated](https://www.npmjs.com/package/mc-ping-updated) node module.
+A simple [Discord.js](https://www.npmjs.com/package/discord.js) bot that pings [Minecraft](https://minecraft.gamepedia.com) servers using the [mc-ping-updated](https://www.npmjs.com/package/mc-ping-updated) node module using a [docker](https://www.docker.com/) container.
 
 This bot is currently compatible with post-1.8 vanilla, Spigot, Waterfall, and Bungeecord servers. Other types of servers are partially supported with varying degrees of comaptbility.
 
 # Setup & Configuration
-- First install Node.js from [here](https://nodejs.org/en/download/) if not already installed.
-- Then open CMD in the folder in which the bot is in and run `npm i`
+- First download from git.
+- Next, build the image with `docker build -t mcstatusbot .`
+- Then, run with `docker run -d --restart=always --name=mcstatusbot mcstatusbot`
 
 Edit the `config.json` file to provide your bot token, preferred command prefix, Minecraft server IP address & port, and ping interval:
 - Replace `"YOUR BOT TOKEN HERE"` with your bot token.
@@ -16,7 +15,6 @@ Edit the `config.json` file to provide your bot token, preferred command prefix,
 - Replace `"25565"` with the port number of the Minecraft server you want to poll. Defaults to port 25565.
 - Replace `"30"` with the frequency, in seconds, at which you want the bot to ping the server. Defaults to pinging every 30 seconds.
 - Replace `"7289DA"` with the hex color code you prefer the bot's richEmbed messages to use.
-- Start the bot by running `start.sh` (Linux) or `start.bat` (Windows). The bot should connect and begin polling the server.
 
 # Default Commands
 - `/help` (aliases: `/commands`, `/list`, `/bot`) - List the other commands
